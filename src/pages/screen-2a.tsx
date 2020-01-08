@@ -5,6 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { colors } from "../constants";
 import { SessionStore } from "../library/session-store";
 import dayjs from "dayjs";
+import Slider from "react-slick";
+import "../static/slick.css";
+import "../static/slick-theme.css";
 import {
   TextBlock,
   SEO,
@@ -25,15 +28,28 @@ export default class Prescreen1c extends React.Component {
 
 
     render() {
+        const settings = {
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        };
+
         return (
             <div>
                 <SEO title="Pre-Screen 2a" keywords={[`gatsby`, `application`, `react`]} />
                 <H2>Benefit Formula</H2>
-                <TextBlock>
-                </TextBlock>
-                  <Card>
-                  <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSFm_RBR4EWvsc7sKfX0CNwgxN7d1h_u0Ui9zxX58Ay7t9AWc9lRJDmNweQPD4V5AsL9Ea5u8rqZ6Nf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-                  </Card>
+                <Slider {...settings}>
+                  <section>
+                    <h3>How does Social Security calculate my benefits?</h3>
+                    <p>Social Security uses three things to calculate your Primary Insurance Amount, or your basic benefit before adjusting for early or late retirement.</p>
+                  </section>
+                  <section>
+                    <h3>Step 1:</h3>
+                    <p>Social Security calculates how much of your Average Indexed Monthly Earnings fall below your first <em>bend point</em>.</p>
+                  </section>
+                </Slider>
             </div>
          )
     }
